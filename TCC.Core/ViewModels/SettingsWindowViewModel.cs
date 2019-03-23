@@ -34,6 +34,7 @@ namespace TCC.ViewModels
         private bool _kh;
         public bool KylosHelper
         {
+            /*
             get => _kh;
             set
             {
@@ -56,6 +57,16 @@ namespace TCC.ViewModels
                 _khCount++;
                 if (_khCount > 2) _khCount = 0;
                 _kh = false;
+                N();
+            }
+            */
+            // by HQ 20190324
+            get => SettingsHolder.KylosHelper;
+            set
+            {
+                if (SettingsHolder.KylosHelper == value) return;
+                SettingsHolder.KylosHelper = value;
+                SessionManager.InitDatabases(SettingsHolder.LastLanguage);
                 N();
             }
         }

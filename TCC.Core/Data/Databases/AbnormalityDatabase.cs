@@ -41,7 +41,41 @@ namespace TCC.Data.Databases
                 var abType = (AbnormalityType)Enum.Parse(typeof(AbnormalityType), s[2]);
                 var infinite = s[5] == "0";
                 var ab = new Abnormality(id, isShow, isBuff, infinite, abType);
-                ab.SetIcon(icon);
+                //============== by HQ 20190324 ========================
+                //ab.SetIcon(icon);
+                if(Settings.SettingsHolder.KylosHelper)
+                {
+                    if ((id == 30190396) || (id == 78200396) || (id == 98200396))       //stack 1
+                    {
+                        ab.SetIcon(icon + "1");
+                    }
+                    else if ((id == 30190397) || (id == 78200397) || (id == 98200397))  //stack 2
+                    {
+                        ab.SetIcon(icon + "2");
+                    }
+                    else if ((id == 30190398) || (id == 78200398) || (id == 98200398))  //stack 3
+                    {
+                        ab.SetIcon(icon + "3");
+                    }
+                    /*
+                    else if (id == 70271)   //test
+                    {
+                        //try { System.Windows.Forms.MessageBox.Show("icon:" + icon + ", icon+3:" + icon + "3"); }
+                        //catch { System.Windows.Forms.MessageBox.Show("id==70271"); }
+                        //ab.SetIcon("icon_items.pastebait05_tex");
+                        ab.SetIcon(icon + "3");
+                    }
+                    */
+                    else
+                    {
+                        ab.SetIcon(icon);
+                    }
+                }
+                else
+                {
+                    ab.SetIcon(icon);
+                }
+                //======================================================
                 ab.SetInfo(name, tooltip);
                 if (type.IndexOf("Absorb", StringComparison.Ordinal) > -1)
                 {

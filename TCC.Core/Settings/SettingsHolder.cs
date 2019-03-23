@@ -105,6 +105,7 @@ namespace TCC.Settings
         public static bool ShowOnlyBosses { get; set; }
         public static EnrageLabelMode EnrageLabelMode { get; set; } = EnrageLabelMode.Remaining;
         public static bool AccurateHp { get; set; } = true;
+        public static bool KylosHelper { get; set; } = true; //by HQ 20190324
 
         // Chat window
         public static bool ChatEnabled
