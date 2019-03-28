@@ -15,7 +15,7 @@ namespace TCC.TeraCommon.Game.Messages
             if (reader.Message.Direction != MessageDirection.ServerToClient || reader.Message.Payload.Count != 54) return;
             try // by HQ 20181228
             {
-                //Log.F("GuildQuestUrgent.log", $"\n[{nameof(UnknownMessage)}] opcode : {reader.Message.OpCode}");
+                Log.F("GuildQuestUrgent.log", $"\n[{nameof(UnknownMessage)}] searching opcode : {reader.Message.OpCode}");
                 reader.BaseStream.Position = 14;
                 var unk3 = reader.ReadTeraString();
                 if (!unk3.Contains("@GuildQuest")) return;
